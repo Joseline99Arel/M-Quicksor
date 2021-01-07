@@ -1,0 +1,55 @@
+package Joseline;
+import java.util.ArrayList;
+import java.util.List;
+
+public class clase {
+    
+int aux;
+    List<Integer> Numeros = new ArrayList<Integer>();
+    
+    public void Insertar(int Numero)
+    {
+        Numeros.add(Numero);
+    }
+    
+    public void QuickSort(int Primero, int Ultimo)
+    {
+        int i, j, Pivote, aux;
+        i = Primero;
+        j = Ultimo;
+        Pivote = Numeros.get((Primero+Ultimo)/2);
+        do{
+            while(Numeros.get(i)<Pivote)
+            {
+                i++;
+            }
+            while (Numeros.get(j)>Pivote)
+            {
+                j--;
+            }
+            
+            if(i<=j)
+            {
+                aux=Numeros.get(i);
+                Numeros.set(i, Numeros.get(j));
+                Numeros.set(j, aux);
+                i++;
+                j--;
+            }
+        }while(i<=j);
+        if(Primero < j)
+        {
+            QuickSort(Primero, j);
+        }
+        if(i<Ultimo)
+        {
+            QuickSort(i, Ultimo);
+        }
+    }
+    
+    public void Mostrar()
+    {
+        System.out.println("Datos Ordenados");
+        System.out.println(Numeros);
+    }
+}
