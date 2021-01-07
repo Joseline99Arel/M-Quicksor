@@ -1,0 +1,48 @@
+package Joseline;
+import java.util.Scanner;
+        
+public class Main {
+    
+  public static void main (String[] args)
+    {
+        Scanner Leer = new Scanner (System.in);
+        
+        clase Obj = new clase();
+        
+        int Opc, x=1, Dato;
+      
+        while(x==1)
+        {
+            System.out.println(" ");
+            System.out.println("Elige una opcion");
+            System.out.println("1.- Insertar");
+            System.out.println("2.- Mostrar ordenada");
+            System.out.println("3.- Salir");
+            Opc=Leer.nextInt();
+            
+            if(Opc>0 && Opc<4)
+            {
+                switch(Opc)
+                {
+                    case 1:
+                        System.out.println("Por favor ingresa un dato");
+                        Dato = Leer.nextInt();
+                        Obj.Insertar(Dato);
+                    break;
+                    case 2:
+                        Obj.QuickSort(0,Obj.Numeros.size()-1);
+                        Obj.Mostrar();
+                    break;
+                    case 3:
+                        System.exit(0);
+                    break;
+                }
+            }
+            else
+            {
+                System.out.println("Lo sentimos el numero es incorrecto");
+                System.out.println("elija otra opcion valida");
+            }
+        }
+    }
+}
